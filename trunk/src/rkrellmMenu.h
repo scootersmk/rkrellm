@@ -1,0 +1,45 @@
+/*
+rkrellm - a _R_atpoison and _T_erminal _F_riendly _M_onitoring application
+Copyright (C) 2005 Scott M. Koch
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+/*main configuration*/
+void config_main(WINDOW *win);
+
+/*help menu*/
+void help_menu(WINDOW *win);
+						
+/*general menu*/
+void general_menu(WINDOW *win);
+
+/*memory menu*/
+void memory_menu(WINDOW *win);
+
+/*load menu*/
+void load_menu(WINDOW *win);
+
+/*user menu*/
+void user_menu(WINDOW *win);
+
+/*proc menu*/
+void proc_menu(WINDOW *win);
+
+/*disk menu*/
+void disk_menu(WINDOW *win);
+
+/*network menu*/
+void net_menu(WINDOW *win);

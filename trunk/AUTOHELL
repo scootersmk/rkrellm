@@ -1,0 +1,16 @@
+a very useful tutorial:
+http://www.seul.org/docs/autotut/
+
+Basics:
+
+aclocal && autoheader && autoconf
+
+automake --add-missing --copy
+
+
+Notes:
+	aclocal will generate an aclocal.m4 file (getting information from configure.in [needed] and acinclude.m4 [optional]).
+
+	autoheader will read configure.in and produce a config.h.in file (or whatever you named it in the AM_CONFIG_HEADER macro).
+
+	autoconf will read configure.in and aclocal.m4 and produce a configure script. 

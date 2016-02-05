@@ -1,0 +1,48 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.59)
+AC_INIT(rkrellm, 1.0.0, koch@uselinux.us)
+AM_INIT_AUTOMAKE(rkrellm, 1.0.0)
+AM_CONFIG_HEADER(src/config.h)
+AC_CONFIG_SRCDIR([src/rkrellmLoad.c])
+
+# Checks for programs.
+AC_PROG_CC
+AC_LANG_C
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+#Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(stdio.h,, AC_MSG_ERROR(stdio.h header file not found. Exiting...))
+AC_CHECK_HEADERS(ctype.h,, AC_MSG_ERROR(ctype.h header file not found. Exiting...))
+AC_CHECK_HEADERS(getopt.h,, AC_MSG_ERROR(getopt.h header file not found. Exiting...))
+AC_CHECK_HEADERS(ncurses.h,, AC_MSG_ERROR(ncurses.h header file not found. Exiting...))
+AC_CHECK_HEADERS(menu.h,, AC_MSG_ERROR(menu.h header file not found. Exiting...))
+AC_CHECK_HEADERS(panel.h,, AC_MSG_ERROR(panel.h header file not found. Exiting...))
+AC_CHECK_HEADERS(statgrab.h,, AC_MSG_ERROR([statgrab.h not found. 
+The libstatgrab library is required to compile and run rtfm.
+Check http://www.i-scream.org/libstatgrab/]))
+
+# Checks for libraries.
+AC_CHECK_LIB([m], [main],, AC_MSG_ERROR(libm required, but not found. Exiting...) )
+AC_CHECK_LIB([ncurses], [main],,AC_MSG_ERROR(libncurses required, but not found. Exiting...))
+AC_CHECK_LIB([menu], [main],, AC_MSG_ERROR(libmenu required, but not found. Exiting...))
+AC_CHECK_LIB([panel], [main],, AC_MSG_ERROR(libpanel required, but not found. Exiting...))
+AC_CHECK_LIB([statgrab], [main],, AC_MSG_ERROR(unable to link to libstatgrab to libstatgrab. Exiting...))
+
+
+# Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([stdlib.h string.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+
+# Checks for library functions.
+AC_FUNC_MALLOC
+AC_CHECK_FUNCS([strdup])
+
+AC_CONFIG_FILES([Makefile src/Makefile])
+AC_OUTPUT
