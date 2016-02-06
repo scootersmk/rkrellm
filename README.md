@@ -2,10 +2,27 @@
 A console based ncurses system monitoring application that provides a
 visually appealing overview of system utilization in real-time.
 
-#Requirements
+##Requirements
   - libstatgrab - http://www.i-scream.org/libstatgrab/
   - ncurses
   - others
+
+This program has the potential to run on any platform that libstatgrab
+is supported on, but all my development and testing has been done on
+linux2.6.
+
+## Install
+  
+You do not need to(and probably should not) run this program as root. To
+compile this from source and install it, run the following commands:
+`./configure --prefix=/path/to/install && make && make install`
+
+If you ommit the prefix, it will likely default to /usr, and you will
+need to run the `make install` as root or with sudo.
+
+Once installed successfully, simply run the binary found in the
+bin directory within the install directory: `/usr/bin/rkrellm` or
+`/path/to/install/bin/rkrellm`
 
 ## Current Project Status
 The code mostly works, but isn't very flexible about handing different
