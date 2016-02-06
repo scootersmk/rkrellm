@@ -160,7 +160,7 @@ void graph_net(WINDOW *win){
     format_int_count(&oerrors, &oerrors_ch, 3);
     format_int_count(&collisions, &collisions_ch, 3);
   
-    sprintf(net1_str, "%s\t%6lld%c/%6lld%c   %6lld%c/%6lld%c    %3lld%c/%3lld%c     %3lld%c     %3d      ", 
+    snprintf(net1_str, sizeof(net1_str), "%s\t%6lld%c/%6lld%c   %6lld%c/%6lld%c    %3lld%c/%3lld%c     %3lld%c     %3d      ", 
 		  net->interface_name, 
 		  tx, 
 		  tx_ch, 
@@ -225,7 +225,7 @@ void graph_net(WINDOW *win){
   format_int_count(&oerrors, &oerrors_ch, 3);
   format_int_count(&collisions, &collisions_ch, 3);
   
-  sprintf(net_total_str, "Total\t%6lld%c/%6lld%c   %6lld%c/%6lld%c    %3lld%c/%3lld%c     %3lld%c      ", 
+  snprintf(net_total_str, sizeof(net_total_str), "Total\t%6lld%c/%6lld%c   %6lld%c/%6lld%c    %3lld%c/%3lld%c     %3lld%c      ", 
 		  tx, 
 		  tx_ch, 
 		  rx,

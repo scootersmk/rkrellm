@@ -204,9 +204,9 @@ sg_battery_stats *get_battery_info(){
 
   buf = (char*)malloc(sizeof(char)*128);
 
-  sprintf(battery_info_file, "%s/info", RTFM_BATTERY_DIR);
-  sprintf(battery_state_file, "%s/state", RTFM_BATTERY_DIR);
-  sprintf(ac_adaptor_state_file, "%s/state", RTFM_AC_ADAPTOR_DIR);
+  snprintf(battery_info_file, sizeof(battery_info_file), "%s/info", RTFM_BATTERY_DIR);
+  snprintf(battery_state_file, sizeof(battery_state_file), "%s/state", RTFM_BATTERY_DIR);
+  snprintf(ac_adaptor_state_file, sizeof(ac_adaptor_state_file), "%s/state", RTFM_AC_ADAPTOR_DIR);
 
   if((fp = fopen(battery_state_file, "r")) == NULL){
     fprintf(stderr, "error opening file: %s\n", battery_state_file);

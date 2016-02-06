@@ -77,7 +77,7 @@ void graph_disk(WINDOW *win){
   format_int_size(&read_bytes, &read_bytes_ch, 4);
   format_int_size(&write_bytes, &write_bytes_ch, 4);
   
-  sprintf(disk_head_str, "%s:%4lld%c/%4lld%c", 
+  snprintf(disk_head_str, sizeof(disk_head_str), "%s:%4lld%c/%4lld%c", 
 		  disks->disk_name, 
 		  read_bytes, 
 		  read_bytes_ch, 
@@ -104,7 +104,7 @@ void graph_disk(WINDOW *win){
   format_int_size(&read_bytes, &read_bytes_ch, 4);
   format_int_size(&write_bytes, &write_bytes_ch, 4);
 
-  sprintf(disk_head_str, "%s:%4lld%c/%4lld%c", 
+  snprintf(disk_head_str, sizeof(disk_head_str), "%s:%4lld%c/%4lld%c", 
 		  disks->disk_name, 
 		  read_bytes, 
 		  read_bytes_ch, 
@@ -128,7 +128,7 @@ void graph_disk(WINDOW *win){
   format_int_size(&read_bytes, &read_bytes_ch, 4);
   format_int_size(&write_bytes, &write_bytes_ch, 4);
   
-  sprintf(disk_head_str, "Total:%4lld%c/%4lld%c", 
+  snprintf(disk_head_str, sizeof(disk_head_str), "Total:%4lld%c/%4lld%c", 
 		  read_bytes, 
 		  read_bytes_ch, 
 		  write_bytes,
@@ -155,7 +155,7 @@ void graph_disk(WINDOW *win){
     format_int_size(&part_used, &part_used_ch, 5);
     format_int_size(&part_avail, &part_avail_ch, 5);
 
-    sprintf(disk_str, "%-20s  %-8s  %-8s        %5lld%c  %5lld%c  %5lld%c", 
+    snprintf(disk_str, sizeof(disk_str), "%-20s  %-8s  %-8s        %5lld%c  %5lld%c  %5lld%c", 
 		    fs->device_name,
                     fs->fs_type, 
 		    fs->mnt_point, 
@@ -167,7 +167,7 @@ void graph_disk(WINDOW *win){
 		    part_avail_ch);
     mvwaddstr(win, (disk_index*3)+16, 1, disk_str);
     disk_percent = 100 * ((float)fs->used/(float)fs->size);
-    sprintf(disk_per_str, "%5.2f%%", disk_percent);
+    snprintf(disk_per_str, sizeof(disk_per_str), "%5.2f%%", disk_percent);
     part_win[i] = subwin(win, PART_GRAPH_Y_SIZE, PART_GRAPH_X_SIZE, PART_GRAPH_Y_POS + (i * 3), PART_GRAPH_X_POS);
     wattrset(part_win[i], COLOR_PAIR(BLUE_BLACK));
     percent_graph(part_win[i], disk_percent, disk_per_str);

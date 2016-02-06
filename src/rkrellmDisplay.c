@@ -95,7 +95,7 @@ int setup_screen(WINDOW **windows){
   /*ymax= 56 xmax= 170 //my testing size */
   getmaxyx(stdscr, ymax, xmax);
   if (ymax < 56 || xmax < 170) {
-    fprintf(stdout, "Terminal size too small.\n");
+    fprintf(stdout, "Terminal size too small\n");
     return 1;
   } 
 
@@ -391,7 +391,7 @@ void histo_graph(WINDOW *win, char *title, double data[], double ranges[]){
       data_scaled[i] = ( data[i] * SCALE_MAX ) / data_max;
   }
 
-  sprintf(max_str, " max=%4.2lf ", data_max);
+  snprintf(max_str, sizeof(max_str), " max=%4.2lf ", data_max);
 
   //wclear(win);
   box(win, 0, 0);

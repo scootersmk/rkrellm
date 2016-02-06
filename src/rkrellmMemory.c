@@ -51,17 +51,17 @@ void graph_mem(WINDOW *win){
   total_used = (float)swap->used + (float)memory->used;
   total = (float)swap->total + (float)memory->total;
   total_percent = 100 * (total_used / total);
-  sprintf(mem_per, "%5.2f%%", mem_percent);
-  sprintf(swap_per, "%5.2f%%", swap_percent);
-  sprintf(total_per, "%5.2f%%", total_percent);
+  snprintf(mem_per, sizeof(mem_per), "%5.2f%%", mem_percent);
+  snprintf(swap_per, sizeof(swap_per), "%5.2f%%", swap_percent);
+  snprintf(total_per, sizeof(total_per), "%5.2f%%", total_percent);
 
-  sprintf(mem_str, "Mem\t%lldM\t%lldM\t%lldM\t%lldM", 
+  snprintf(mem_str, sizeof(mem_str), "Mem\t%lldM\t%lldM\t%lldM\t%lldM", 
 		  (long long)memory->cache/(1024*1024), 
 		  (long long)memory->used/(1024*1024), 
 		  (long long)memory->free/(1024*1024), 
 		  (long long)memory->total/(1024*1024));
   
-  sprintf(swap_str, "Swap\t\t%lldM\t%lldM\t%lldM", 
+  snprintf(swap_str, sizeof(swap_str), "Swap\t\t%lldM\t%lldM\t%lldM", 
 		  (long long)swap->used/(1024*1024), 
 		  (long long)swap->free/(1024*1024), 
 		  (long long)swap->total/(1024*1024));

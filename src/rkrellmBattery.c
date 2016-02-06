@@ -49,7 +49,7 @@ void graph_battery(WINDOW *win){
 
   battery_percent = 
 	  100 * ((float)battery_info->remaining_capacity/(float)battery_info->capacity);
-  sprintf(battery_str, " %5.2f%%", battery_percent);
+  snprintf(battery_str, sizeof(battery_str), " %5.2f%%", battery_percent);
   graph_win = subwin(win, BATTERY_GRAPH_Y_SIZE, BATTERY_GRAPH_X_SIZE, BATTERY_GRAPH_Y_POS, BATTERY_GRAPH_X_POS);
   wattrset(graph_win, COLOR_PAIR(BLUE_BLACK));
   percent_graph_battery(graph_win, battery_percent, battery_str);

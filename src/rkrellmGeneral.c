@@ -51,7 +51,7 @@ void graph_general(WINDOW *win){
   tmp = tmp - ( minutes * 60);
   seconds = tmp;
 
-  sprintf(uptime_str, "%d days, %.2d:%.2d:%.2d    ", 
+  snprintf(uptime_str, sizeof(uptime_str), "%d days, %.2d:%.2d:%.2d    ", 
 		  days, 
 		  hours, 
 		  minutes,

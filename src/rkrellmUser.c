@@ -87,13 +87,13 @@ void graph_user(WINDOW *win){
     }
     if(found == 0){
         list[index] = (char*)malloc(sizeof(char)*(strlen(tok) + 1));
-	sprintf(list[index], "%s", tok);
+	snprintf(list[index], sizeof(list[index]), "%s", tok);
 	shells[index]++;
 	index++;
     }
   } 
 
-  sprintf(user_count_str, "%d", 
+  snprintf(user_count_str, sizeof(user_count_str), "%d", 
 		  index);
   mvwaddstr(win, 1, 1, "# of users: ");
   waddstr(win, user_count_str);
@@ -101,7 +101,7 @@ void graph_user(WINDOW *win){
   i = 0;
   while( i < maxy - 4 ){
     if(i < index ){
-      sprintf(user_str, "%s %d", list[i], shells[i]); 
+      snprintf(user_str, sizeof(user_str), "%s %d", list[i], shells[i]); 
       mvwaddstr(win, i+3, 2, user_str);    
       i++;
     }	  

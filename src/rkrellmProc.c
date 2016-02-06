@@ -95,7 +95,7 @@ void graph_proc(WINDOW *win){
   
 
   /* display general process information(count, types, etc...)*/
-  sprintf(general_str, "Total:%4d  Running:%4d  Sleeping:%4d Stopped:%4d  Zombie:%4d",
+  snprintf(general_str, sizeof(general_str), "Total:%4d  Running:%4d  Sleeping:%4d Stopped:%4d  Zombie:%4d",
 		  process_count->total, 
 		  process_count->running, 
 		  process_count->sleeping, 
@@ -133,7 +133,7 @@ void graph_proc(WINDOW *win){
     format_int_size(&mem_size, &mem_size_ch, 3);
     format_int_size(&mem_res, &mem_res_ch, 3);
 	 
-    sprintf(process_str, 
+    snprintf(process_str, sizeof(process_str), 
 		  "%5d %5d %5d  %02d:%02d:%02d  %3.0lf%%  %3lld%c  %3lld%c %3d   %d   %-15s",
 		  top_procs[xpos - 5]->uid, 
 		  top_procs[xpos - 5]->pid, 

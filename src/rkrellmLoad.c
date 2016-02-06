@@ -61,7 +61,7 @@ void graph_load(WINDOW *win){
   getmaxyx(win, maxy, maxx);
  
 
-  sprintf(load1_head_str, "1minute: %5.2f", 
+  snprintf(load1_head_str, sizeof(load1_head_str), "1minute: %5.2f", 
 		  load->min1);
 
   /* Create the load1 graph window*/
@@ -71,7 +71,7 @@ void graph_load(WINDOW *win){
   touchwin(load1_win);
   wnoutrefresh(load1_win);
 
-  sprintf(load5_head_str, "5minutes: %5.2f", 
+  snprintf(load5_head_str, sizeof(load5_head_str), "5minutes: %5.2f", 
 		  load->min5);
 
   /* Create the load2 graph window*/
@@ -81,7 +81,7 @@ void graph_load(WINDOW *win){
   touchwin(load5_win);
   wnoutrefresh(load5_win);
   
-  sprintf(load15_head_str, "15minutes: %5.2f", 
+  snprintf(load15_head_str, sizeof(load15_head_str), "15minutes: %5.2f", 
 		  load->min15);
 
   /* Create the load_total graph window*/
