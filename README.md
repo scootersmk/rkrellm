@@ -3,7 +3,7 @@ A console based ncurses system monitoring application that provides a
 visually appealing overview of system utilization in real-time.
 
 ##Requirements
-  - libstatgrab - http://www.i-scream.org/libstatgrab/
+  - libstatgrab 0.17 or newer - http://www.i-scream.org/libstatgrab/
   - ncurses
   - others
 
